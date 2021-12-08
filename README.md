@@ -8,7 +8,8 @@ Evaluation scripts for [MICCAI 2022 MELA Challenge: Mediastinal Lesion Analysis]
 ```
 MELA-Challenge/
     requirements.txt                            Required packages for evaluation
-    evaluation_mediastinum.py                   Functions for model evaluation
+    MELA/
+        evaluation_mediastinum.py               Functions for model evaluation
 ```
 
 # Setup
@@ -42,15 +43,13 @@ You can download the competition data by first [Join](https://mela.grand-challen
 
 We use this script to evaluate your test set submission online. You can evaluate your own prediction locally as well. The evaluation script has very specific requirements on the submission format. Please make sure that these requirements are followed or your submission won't be graded.
 
-To evaluate your prediction locally, you need to prepare the ground-truth and prediction directory. Take validation dataset as an example. After the train/validation data is downloaded, you should unzip it and place all ground-truth label .nii.gz files along with the info .csv file under the same directory as follows:
+To evaluate your prediction locally, you need to prepare the ground-truth and prediction csv file. Take validation dataset as an example. After the train/validation data is downloaded, you should unzip it and find the following ground-truth csv file:
 ```
-ground_truth_directory/
     mela-val-gt.csv
 ```
 
-Your prediction should be organized similarly to the ground-truth directory. .nii.gz and .csv should be placed under the same directory as follows:
+Your prediction should be organized to a .csv file:
 ```
-prediction_directory/
     mela-val-pred.csv
 ```
 
@@ -67,11 +66,9 @@ The prediction info .csv should have four columns: ```public_id``` (patient ID),
 |mela_0880|111|85.2|65.55|20|35|37.25|0.55|
 |mela_0880|52.25|73|88.26|18|20.56|40.25|0.27|
 
-For each public_id, there should be at least one row representing the background class. Similar to the ground-truth info .csv, the background record should have ```label_id=0``` and ```label_code=0```. Other than that, each row in the classification prediction .csv represents one predicted fracture area. The public_id should be in the same format as in .nii file names.
-
-You could refer to submission samples for the [validation set](https://drive.google.com/file/d/1o87IKN2MN6ty__V0tc079BvTAPb_uT-K/view) and [test set](https://drive.google.com/file/d/1ehEo69m7hsKG8G_Q5TSLfl8x5y-OepeB/view). Please note that submission samples are randomly generated to pass the evaluation sanity check. 
+Each row in the prediction .csv represents one predicted bounding box of lesion area. The public_id should be in the same format as in the provided .nii file names.
 
 After setting all of the above, you can evaluate your prediction through the following command line:
 ```bash
-python -m ribfrac.evaluation --gt_dir <ground_truth_directory> --pred_dir <prediction_directory>
+python -m MELA/evaluation_mediastinum --gt_dir <ground_truth_csv> --pred_dir <prediction_csv>
 ```
