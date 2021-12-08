@@ -26,12 +26,6 @@ And then install required packages using pip:
 pip install -r requirements.txt
 ```
 
-## Install this repo as a package (optional)
-
-You can also install this repository as a package in your environment if you want to:
-```bash
-python setup.py install
-```
 
 # Usage
 
