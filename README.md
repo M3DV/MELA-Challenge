@@ -48,7 +48,7 @@ Your prediction should be organized to a .csv file:
 ```
 
 
-The prediction info .csv should have four columns: ```public_id``` (patient ID), ```coordX```, ```coordY```, ```coordZ``` (prediction coordinates marking the bounding boxes of lesions), ```x_length```, ```y_length```, ```z_length``` (length of the predicted bounding boxes) and ```probability``` (detection confidence), e.g.:
+The prediction info .csv should have eight columns: ```public_id``` (patient ID), ```coordX```, ```coordY```, ```coordZ``` (prediction coordinates marking the bounding boxes of lesions), ```x_length```, ```y_length```, ```z_length``` (length of the predicted bounding boxes) and ```probability``` (detection confidence), e.g.:
 
 |public_id|coordX|coordY|coordZ|x_length|y_length|z_length|probability|
 |-|-|-|-|-|-|-|-|
