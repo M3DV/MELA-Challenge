@@ -52,13 +52,13 @@ The prediction info .csv should have eight columns: ```public_id``` (patient ID)
 
 |public_id|coordX|coordY|coordZ|x_length|y_length|z_length|probability|
 |-|-|-|-|-|-|-|-|
-|mela_0771|15.1|12.54|54.22|21|22|20.2|0.75|
-|mela_0771|115.1|152.54|85.16|10|32.1|15.3|0.26|
-|mela_0772|24.31|10.05|100.1|21|22|20.2|0.66|
-|mela_0772|105.32|52.94|55.16|16|19.88|14|0.35|
+|mela_0881|15.1|12.54|54.22|21|22|20.2|0.75|
+|mela_0881|115.1|152.54|85.16|10|32.1|15.3|0.26|
+|mela_0882|24.31|10.05|100.1|21|22|20.2|0.66|
+|mela_0882|105.32|52.94|55.16|16|19.88|14|0.35|
 |...||||||||
-|mela_0880|111|85.2|65.55|20|35|37.25|0.55|
-|mela_0880|52.25|73|88.26|18|20.56|40.25|0.27|
+|mela_1100|111|85.2|65.55|20|35|37.25|0.55|
+|mela_1100|52.25|73|88.26|18|20.56|40.25|0.27|
 
 Each row in the prediction .csv represents one predicted bounding box of lesion area. The public_id should be in the same format as in the provided .nii file names.
 
