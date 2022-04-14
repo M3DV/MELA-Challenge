@@ -334,7 +334,7 @@ def froc(df_list, num_gts, iou_thresh=0.3, key_fp=DEFAULT_KEY_FP):
         in the detection track.
     """
     fp_recall = [_froc_single_thresh(df_list, num_gts, p_thresh, iou_thresh)
-                 for p_thresh in np.arange(0, 1, 0.005)]  #0.01
+                 for p_thresh in np.arange(0, 1, 0.005)]  
     fp = [x[0] for x in fp_recall]
     recall = [x[1] for x in fp_recall]
     key_recall = _get_key_recall(fp, recall, key_fp)
@@ -357,7 +357,7 @@ def plot_froc(fp, recall):
     _, ax = plt.subplots()
     ax.plot(fp, recall)
     ax.set_title("FROC")
-    plt.savefig("/data/users/songshuang/experiments/YL/ribfrac/froc.jpg")
+    plt.savefig("froc.jpg")
 
 
 def draw_box(img, box):
