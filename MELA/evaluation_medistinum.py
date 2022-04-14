@@ -191,9 +191,6 @@ def evaluate_single_prediction(gt_info, pred_info):
             # get iou of gt and pred bboxes
             gt_pred_iou = iou_3d(gt_bbox, pred_bbox)
             iou_matrix[gt_idx, pred_idx] = gt_pred_iou
-            '''if (gt_pred_iou > 0.28) & (gt_pred_iou < 0.32):
-                print(gt_pred_iou)
-                print(pred_bbox_info)'''
 
         # get corresponding GT index, pred index and union index
 
@@ -239,9 +236,6 @@ def _froc_single_thresh(df_list, num_gts, p_thresh, iou_thresh):
     # calculate total false positives
     total_fp = sum([len(df) - len(df.loc[df["max_iou"] > iou_thresh])
                     for df in df_pos_pred])
-
-    '''mid_iou = [df[df["max_iou"] > iou_thresh_low & df["max_iou"] < iou_thresh_high] for df in df_list]
-    mid_iou.to_csv('/data/users/songshuang/experiments/YL/ribfrac/iou_02_05.csv', sep=' ', header=True, index=False)'''
 
     fp = (total_fp + EPS) / (len(df_list) + EPS)  # average fp in every sample
     recall = (total_tp + EPS) / (total_gt + EPS)
@@ -397,8 +391,6 @@ def evaluate(gt_csv_path, pred_csv_path):
     pred_pids = list(pred_info["public_id"].unique())
 
     # GT and prediction directory sanity check
-    '''assert len(seriesUIDs) == pred_uids_num, \
-        "Unequal number of predictions and ground-truths."'''
     for i in pred_pids:
         assert i in gt_pids, \
             "Unmatched seriesuid (not included in test set)."
