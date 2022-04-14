@@ -51,31 +51,6 @@ def iou_3d(bbox1, bbox2):
     size_union = size_1 + size_2 - size_intersection
     return size_intersection / size_union
 
-
-def bbox_3d(bbox):
-    """
-    Calculates the size of a 3D box.
-    """
-    (x, y, z, w, h, d) = bbox
-    x1 = x - w / 2
-    x2 = x + w / 2
-    y1 = y - h / 2
-    y2 = y + h / 2
-    z1 = z - d / 2
-    z2 = z + d / 2
-    size = (x2 - x1) * (y2 - y1) * (z2 - z1)
-    return size
-
-
-def readCSV(filename):
-    lines = []
-    with open(filename, "r") as f:
-        csvreader = csv.reader(f)
-        for line in csvreader:
-            lines.append(line)
-    return lines
-
-
 def _compile_pred_metrics(iou_matrix, gt_info, pred_info):
     """
     Compile prediction metrics into a Pandas DataFrame
