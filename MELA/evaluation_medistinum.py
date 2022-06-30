@@ -335,12 +335,6 @@ def plot_froc(fp, recall):
     plt.savefig("froc.jpg")
 
 
-def draw_box(img, box):
-    x, y, x1, y1 = box
-    cv2.rectangle(img, (x, y), (x1, y1), (0, 0, 255), 2)
-    return img
-
-
 def evaluate(gt_csv_path, pred_csv_path):
     """
     Evaluate predictions against the ground-truth.
@@ -349,10 +343,8 @@ def evaluate(gt_csv_path, pred_csv_path):
     ----------
     gt_csv_path : str
         The ground-truth csv.
-    pred_dir : str
+    pred_csv_path : str
         The prediction csv.
-    test_pid_csv : str
-        The test seriesuid csv.
 
     Returns
     -------
